@@ -1,9 +1,228 @@
 <html>
 <head>
-<title>Hello, world!</title>
+    <title>Teymur Bayramov—personal page</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            background: white;
+            font-family: 'Inter', 'Work Sans', sans-serif;
+            font-size: 12pt; /* 10pt for PDF */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .cv {
+            max-width: 840px;
+            width: 100vh;
+        }
+
+        .cv-heading {
+            text-align: center;
+        }
+
+        .the-acknowledgment {
+            text-align: center;
+        }
+
+        .block {
+            margin-bottom: 20px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .list {
+            margin-top: 0;
+        }
+
+    </style>
+
 </head>
+
 <body>
-<h1>Hello, world!</h1>
+
+<div class="container">
+    <div class="cv">
+        <header class="cv-heading block">
+            <h1 style="margin-bottom: 0px">TEYMUR BAYRAMOV</h1>
+            Senior Software Engineer with focus on backend
+            | Tallinn, Estonia
+            | Contact me on <a href="https://www.linkedin.com/in/tbayramov/">LinkedIn</a>
+            | <a href="TeymurBayramov-CV.pdf">This CV as PDF</a>
+        </header>
+
+        <b>ABOUT ME</b>
+        <hr/>
+
+        <div class="block">
+            Hi! I'm a senior software engineer based in Tallinn, Estonia. My focus is on backend development, architecture, and API design,
+            but my interests, among other things, include operating systems architecture.
+        </div>
+
+        <main>
+            <b>PROFESSIONAL EXPERIENCE</b>
+            <hr/>
+
+            <div class="block">
+                <div class="header">
+                    <span><b>Riverty</b> (previously Arvato Financial Solutions Tech Center), Tallinn, Estonia</span>
+                    <b>May 2022–present</b>
+                </div>
+                <div>
+                    Senior Software Development Engineer at BNPL Division
+                    <ul class="list">
+                        <li>Perform extensive code reviews and assist developers in implementing robust solutions</li>
+                        <li>Deliver presentations for the developers team about various technologies and practices</li>
+                        <li>Develop new features and support existing codebase</li>
+                        <li>Updated the message consuming component, increasing maximum throughput by 3 times</li>
+                        <li>Introduced a set of coding guidelines to ensure uniformity of the code, and empower best
+                            practices, resulting in lower number of style and performance related issues
+                        </li>
+                        <li>Implemented a spell-check for email-based authentication, reducing 1000+ errors over the
+                            first 3 weeks from introduction
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="header">
+                    <span><b>Consulting for Renewal</b>, Remote</span>
+                    <b>October 2021–April 2022</b>
+                </div>
+                <div>
+                    Lead Software Development Engineer
+                    <ul class="list">
+                        <li>Designed and developed a data import pipeline, consisting of RESTful APIs and worker
+                            services communicating via RabbitMQ
+                        </li>
+                        <li>Researched and implemented high-performance text matching algorithms for the data import
+                            pipeline to ensure maximal throughput and effective collision handling
+                        </li>
+                        <li>Performed code reviews, and managed and mentored junior developers</li>
+                        <li>Integrated company's partners' services into the project and helped them throughout the
+                            process
+                        </li>
+                        <li>Delivered presentations for a mixed tech/non-tech audience about technologies in use</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="header">
+                    <span><b>Consulting for various projects</b>, Baku, Azerbaijan</span>
+                    <b>September 2020–October 2021</b>
+                </div>
+                <div>
+                    Software Development Engineer
+                    <ul class="list">
+                        <li>Designed and developed RESTful APIs</li>
+                        <li>Transformed business requirements to technical requirements</li>
+                        <li>Documented projects in detail to increase transparency for stakeholders and other
+                            developers
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="header">
+                    <span><b>Zirinc</b>, Baku, Azerbaijan</span>
+                    <b>August 2019–August 2020</b>
+                </div>
+                <div>
+                    Software Development Engineer
+                    <ul class="list">
+                        <li>Developed new microservices from scratch using .NET Core 2.2+, C#, PostgreSQL, OracleDB for
+                            e-commerce, payment, and document management systems, and supported existing codebase
+                        </li>
+                        <li>Managed and mentored junior developers</li>
+                        <li>Deployed services and ensured operability using Jenkins and Docker on Linux</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="header">
+                    <span><b>Freelancer</b>, Remote</span>
+                    <b>October 2017–August 2019</b>
+                </div>
+                <div>
+                    Full-stack Software Development Engineer
+                    <ul class="list">
+                        <li>Worked on various projects involving Node.js, Meteor.js, React.js, MongoDB, MySQL, Bitcoin
+                            API, and OpenShift
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="header">
+                    <span><b>AccessBank</b>, Baku, Azerbaijan</span>
+                    <b>October 2016–October 2017</b>
+                </div>
+                <div>
+                    Full-stack Software Development Engineer
+                    <ul class="list">
+                        <li>Implemented a set of UI components for an internal system</li>
+                        <li>Developed a small framework to use those components within using Meteor.js, MongoDB and
+                            Docker
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    JavaScript Trainer
+                    <ul class="list">
+                        <li>Prepared and delivered introductory JavaScript course for fresh learners resulting in more
+                            than 90% success rate
+                        </li>
+                        <li>Reviewed homework and assisted students with assignments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <b>SKILLS</b>
+            <hr/>
+
+            <div class="block">
+                <b>Development:</b> C#, TypeScript, ASP.NET Core, Entity Framework Core, SignalR, MSSQL, PostgreSQL,
+                Redis, MongoDB, RabbitMQ, Docker, Docker Compose, Node.js, Microsoft Azure <br>
+                <b>Languages:</b> English (fluent), Azerbaijani (native), Russian (native), Estonian (beginner)
+            </div>
+
+            <b>EDUCATION</b>
+            <hr/>
+            <div class="block">
+                <div class="header">
+                    <span><b>Lomonosov Moscow State University Baku branch</b>, Baku, Azerbaijan</span>
+                    <b>Class of 2019</b>
+                </div>
+                Bachelor of Science — Applied Mathematics and Computer Science
+            </div>
+
+            <hr/>
+
+            <div class="the-acknowledgment">
+                <small>
+                    Thanks to <a href="https://www.linkedin.com/in/tatyanabayramova/">Tatyana Bayramova</a> for helping me freshen up my HTML and CSS skills ❤️
+                    <br/>
+                    <small>None but me, of course, can be held accountable for the HTML and CSS on this page :D</small>
+                </small>
+            </div>
+        </main>
+    </div>
+</div>
+
 </body>
 </html>
 
