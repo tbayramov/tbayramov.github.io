@@ -2,12 +2,31 @@
 <head>
     <script data-goatcounter="https://tbpws.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script>
+        function delayed(e, f) {
+            e.preventDefault();
+            f();
+            setTimeout(function () { window.location.href = e.target.href }, 100);
+        }
+
         function countPdf() {
             window.goatcounter.count({
-                path:  'pdf',
+                path: 'pdf',
                 title: 'PDF requested',
                 event: true,
-            })
+            });
+        }
+
+        function countLinkedIn() {
+            window.goatcounter.count({
+                path: 'linkedin',
+                title: 'LinkedIn Link clicked',
+                event: true,
+            });
+        }
+
+        window.onload = function () {
+            document.getElementById("linkedin-link").onclick = (e) => delayed(e, countLinkedIn);
+            document.getElementById("pdf-link").onclick = (e) => delayed(e, countPdf);
         }
     </script>
     <title>Teymur Bayramov—personal page</title>
@@ -66,17 +85,16 @@
             <h1 style="margin-bottom: 0px">TEYMUR BAYRAMOV</h1>
             Senior Software Engineer with focus on backend
             | Tallinn, Estonia
-            | Contact me on <a href="https://www.linkedin.com/in/tbayramov/"
-                               data-goatcounter-click="linkedin"
-                               data-goatcounter-title="LinkedIn Link clicked">LinkedIn</a>
-            | <a href="TeymurBayramov-CV.pdf" onclick="countPdf()">This CV as PDF</a>
+            | Contact me on <a id="linkedin-link" href="https://www.linkedin.com/in/tbayramov/">LinkedIn</a>
+            | <a id="pdf-link" href="TeymurBayramov-CV.pdf">This CV as PDF</a>
         </header>
 
         <b>ABOUT ME</b>
         <hr/>
 
         <div class="block">
-            Hi! I'm a senior software engineer based in Tallinn, Estonia. My focus is on backend development, architecture, and API design,
+            Hi! I'm a senior software engineer based in Tallinn, Estonia. My focus is on backend development,
+            architecture, and API design,
             but my interests, among other things, include operating systems architecture.
         </div>
 
@@ -226,7 +244,8 @@
 
             <div class="the-acknowledgment">
                 <small>
-                    Thanks to <a href="https://www.linkedin.com/in/tatyanabayramova/">Tatyana Bayramova</a> for helping me freshen up my HTML and CSS skills ❤️
+                    Thanks to <a href="https://www.linkedin.com/in/tatyanabayramova/">Tatyana Bayramova</a> for helping
+                    me freshen up my HTML and CSS skills ❤️
                     <br/>
                     <small>None but me, of course, can be held accountable for the HTML and CSS on this page :D</small>
                 </small>
