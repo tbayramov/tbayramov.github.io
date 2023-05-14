@@ -1,6 +1,23 @@
 <html>
 <head>
     <script data-goatcounter="https://tbpws.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script>
+        function countLinkedIn() {
+            window.goatcounter.count({
+                path:  'linkedin',
+                title: 'LinkedIn Link clicked',
+                event: true,
+            })
+        }
+
+        function countPdf() {
+            window.goatcounter.count({
+                path:  'pdf',
+                title: 'PDF requested',
+                event: true,
+            })
+        }
+    </script>
     <title>Teymur Bayramov—personal page</title>
     <style>
 
@@ -57,8 +74,8 @@
             <h1 style="margin-bottom: 0px">TEYMUR BAYRAMOV</h1>
             Senior Software Engineer with focus on backend
             | Tallinn, Estonia
-            | Contact me on <a href="https://www.linkedin.com/in/tbayramov/">LinkedIn</a>
-            | <a href="TeymurBayramov-CV.pdf">This CV as PDF</a>
+            | Contact me on <a href="https://www.linkedin.com/in/tbayramov/" onclick="countLinkedIn()">LinkedIn</a>
+            | <a href="TeymurBayramov-CV.pdf" onclick="countPdf()">This CV as PDF</a>
         </header>
 
         <b>ABOUT ME</b>
