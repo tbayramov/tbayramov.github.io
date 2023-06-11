@@ -99,7 +99,7 @@
         input {
             padding:7px;
             margin-top: 5px;
-            margin-bottom: 5px;
+            margin-bottom: 7px;
             border: 1px solid lightsteelblue;
             border-radius: 3px;
         }
@@ -181,6 +181,8 @@
             width: 24px;
             display: flex;
             justify-content: center;
+            align-items: center;
+
             font-size: 16pt;
             flex-direction: column;
         }
@@ -208,6 +210,8 @@
             width: 24px;
             display: flex;
             justify-content: center;
+            align-items: center;
+
             font-size: 16pt;
             flex-direction: column;
         }
@@ -260,6 +264,19 @@
 
         #copyright {
             font-size: 12px;
+        }
+
+        #personal-details textarea:not(:last-child) {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        #personal-details input:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
         }
 
     </style>
@@ -338,43 +355,37 @@
 
                 Last saved at:&nbsp;<span id="autosave-date"></span>
             </div>
-            <label for="editor-name">Name</label> <br>
-            <input type="text" name="name" id="editor-name"/>
 
-            <label for="editor-title">Title</label> <br>
-            <input type="text" name="title" id="editor-title"/>
-
-            <br/>
-
-            <label for="editor-about-me">About me</label><br>
-            <textarea name="about-me" id="editor-about-me"></textarea>
-
-            <br/>
-
-            <fieldset>
+            <fieldset id="personal-details">
                 <legend class="window-controls">
                     <button class="button-minimize-fieldset">&ndash;</button>
-                    <span class="window-controls-title">Details</span>
+                    <span class="window-controls-title">Personal Details</span>
                 </legend>
 
                 <div class="fieldset-content">
-                    <label for="editor-location">Location</label> <br>
+                    <label for="editor-name">Name</label>
+                    <input type="text" name="name" id="editor-name"/>
+
+                    <label for="editor-title">Title</label>
+                    <input type="text" name="title" id="editor-title"/>
+
+                    <label for="editor-about-me">About me</label>
+                    <textarea name="about-me" id="editor-about-me"></textarea>
+
+                    <label for="editor-location">Location</label>
                     <input type="text" name="location" id="editor-location"/>
-                    <br>
 
-                    <label for="editor-email">Email</label> <br>
+                    <label for="editor-email">Email</label>
                     <input type="email" name="email" id="editor-email"/>
-                    <br>
 
-                    <label for="editor-linkedin">LinkedIn</label> <br>
+                    <label for="editor-linkedin">LinkedIn</label>
                     <input type="url" name="linkedin" id="editor-linkedin"/>
-                    <br>
 
                     <label for="editor-details-format">
                         Details format (add arbitrary data separated by | pipe). Supported properties:
                         @email, @linkedin, @location.
 
-                    </label><br>
+                    </label>
                     <textarea name="about-me" id="editor-details-format"></textarea>
                 </div>
             </fieldset>
@@ -395,7 +406,7 @@
                         </legend>
 
                         <div class="fieldset-content">
-                            <input type="text" name="name" placeholder="Position"/> <br>
+                            <input type="text" name="name" placeholder="Position"/>
                             <textarea name="details">Add information each on its line </textarea>
                         </div>
                     </fieldset>
