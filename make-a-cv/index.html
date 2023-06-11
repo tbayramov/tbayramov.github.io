@@ -1,0 +1,514 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Teymur Bayramov">
+    <meta name="description"
+          content="Senior Software Engineer focused on backend development based in Tallinn, Estonia.">
+
+    <script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script>
+    <script src="generator.js"></script>
+    <script src="actions.js"></script>
+    <script data-goatcounter="https://tbpws.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script>
+        window.onload = function () {
+            initializeActions();
+        }
+    </script>
+    <title>Make-a-CV</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            background: white;
+            font-family: 'Inter', 'Work Sans', sans-serif;
+            font-size: 16px; /* 10pt for PDF */
+        }
+
+        .print-sized-font {
+            font-size:10pt !important;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .cv {
+            max-width: 840px;
+            width: 100vh;
+        }
+
+        .cv-heading {
+            text-align: center;
+        }
+
+        .the-acknowledgment {
+            text-align: center;
+        }
+
+        .block {
+            margin-bottom: 20px;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .list {
+            margin-top: 0;
+        }
+
+        .cv-heading h1, .section-header {
+            text-transform: uppercase;
+        }
+
+        .editor {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .editor-about {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 840px;
+            margin-bottom: 20px;
+        }
+
+        .editor-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 840px;
+            width: 100vh;
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        input {
+            padding:7px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid lightsteelblue;
+            border-radius: 3px;
+        }
+
+        input:active {
+            border-color: darkblue;
+        }
+
+        fieldset {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid lightsteelblue;
+            border-radius: 8px;
+        }
+
+        fieldset:hover {
+            background-image: linear-gradient(to bottom right, white, #b0c4de16);
+        }
+
+        fieldset:active {
+            background-image: linear-gradient(to bottom right, white, #b0c4de16);
+        }
+
+        textarea {
+            resize: vertical;
+            border: 1px solid lightsteelblue;
+            border-radius: 8px;
+            padding:7px;
+            min-height: 100px;
+        }
+
+        .button-add {
+            background: royalblue;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            border: 0;
+        }
+
+        .button-add:hover {
+            background: dodgerblue;
+        }
+
+        .button-add:active {
+            background: darkblue;
+        }
+
+        .button-critical {
+            background: orangered;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            border: 0;
+        }
+
+        .button-critical:hover {
+            background: palevioletred;
+        }
+
+        .button-critical:active {
+            background: darkred;
+        }
+
+        .window-controls {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .window-control-close {
+            background: white;
+            color: orangered;
+            border-radius: 50%;
+            border: 2px solid orangered;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+
+            height: 24px;
+            width: 24px;
+            display: flex;
+            justify-content: center;
+            font-size: 16pt;
+            flex-direction: column;
+        }
+
+        .window-control-close:hover {
+            background: palevioletred;
+            border: 2px solid palevioletred;
+            color: white;
+        }
+
+        .window-control-close:active {
+            background: darkred;
+            border: 2px solid darkred;
+        }
+
+        .button-minimize-fieldset {
+            background: white;
+            color: royalblue;
+            border-radius: 50%;
+            border: 2px solid royalblue;
+            margin-top: 5px;
+            margin-bottom: 5px;
+
+            height: 24px;
+            width: 24px;
+            display: flex;
+            justify-content: center;
+            font-size: 16pt;
+            flex-direction: column;
+        }
+
+        .button-minimize-fieldset:hover {
+            background: dodgerblue;
+            border: 2px solid dodgerblue;
+            color: white;
+        }
+
+        .button-minimize-fieldset:active {
+            background: darkblue;
+            border: 2px solid darkblue;
+        }
+
+        .window-controls-title {
+            margin:8px;
+        }
+
+        input[type=date] {
+            height:34px;
+        }
+
+        #editor-about-heading {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        #autosave-indicator {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: end;
+            font-size:12px;
+        }
+
+        #editor-about-heading > img {
+            margin-right: 10px;
+        }
+
+        label {
+            font-size: 14px !important;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #copyright {
+            font-size: 12px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="editor-container">
+    <div class="editor-about">
+        <div id="editor-about-heading">
+            <img src="images/icon.svg" height="64">
+            <div>
+                <h1 style="margin-bottom: 0px;">Make-a-CV</h1>
+                CVs made simple.
+            </div>
+        </div>
+
+        <fieldset>
+            <legend class="window-controls">
+                <button class="button-minimize-fieldset">&ndash;</button>
+                <span class="window-controls-title">About this tool</span>
+            </legend>
+
+            <div class="fieldset-content">
+                Hi! This is a very simple tool that helps to make a CV, which I made to meet my own needs. It doesn't send
+                any of the CV data to a server, because there isn't one&mdash;this page is statically served by GitHub Pages and uses no
+                API. I only collect some usage stats which contain no personal or sensitive data.
+
+                <br/> <br/>
+
+                If you've spot a bug, have a suggestion, or want to chat about the tool, feel free to contact me by
+                <a href="mailto:teymur@bayra.mov?subject=Regarding Make-a-CV: [your summary goes here]">email</a>,
+                or <a href="https://github.com/tbayramov/tbayramov.github.io/issues">create</a> a GitHub issue
+                (make sure to add a "make-a-cv" label).
+
+                <br/> <br/>
+
+                A preview is available below the editor. CV data is auto-saved <b>locally</b> (browser's
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">local storage</a>)
+                and you can save it in JSON format  by clicking <i>Export JSON</i>. You can then import it to continue editing
+                or make adjustments.
+
+                <br> <br>
+
+                To save your CV as PDF you can click <i>Print</i> and select "Printing to PDF" (feature availability depends on
+                the OS)&mdash;this will also set 10pt font size and leave only CV on the page. Directly invoking the print dialog
+                works the same.
+
+                <br> <br>
+
+                Each input accepts HTML.
+
+                <br> <br>
+
+                Inspired by CV templates from <a href="https://www.reddit.com/r/EngineeringResumes/">r/EngineeringResumes</a>.
+
+                <br> <br>
+
+                <a href="#" id="show-example-resume">Import example CV</a>.
+
+                <br> <br>
+
+                <div id="copyright">
+                    &copy; 2023 Teymur Bayramov. All rights reserved.
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+
+    <div class="editor">
+        <form class="editor-form" id="editor" onsubmit="">
+            <div class="" id="autosave-indicator">
+                <img src="images/autosave.png" height="24" style="margin-right:5px;">
+
+                Last saved at:&nbsp;<span id="autosave-date"></span>
+            </div>
+            <label for="editor-name">Name</label> <br>
+            <input type="text" name="name" id="editor-name"/>
+
+            <label for="editor-title">Title</label> <br>
+            <input type="text" name="title" id="editor-title"/>
+
+            <br/>
+
+            <label for="editor-about-me">About me</label><br>
+            <textarea name="about-me" id="editor-about-me"></textarea>
+
+            <br/>
+
+            <fieldset>
+                <legend class="window-controls">
+                    <button class="button-minimize-fieldset">&ndash;</button>
+                    <span class="window-controls-title">Details</span>
+                </legend>
+
+                <div class="fieldset-content">
+                    <label for="editor-location">Location</label> <br>
+                    <input type="text" name="location" id="editor-location"/>
+                    <br>
+
+                    <label for="editor-email">Email</label> <br>
+                    <input type="email" name="email" id="editor-email"/>
+                    <br>
+
+                    <label for="editor-linkedin">LinkedIn</label> <br>
+                    <input type="url" name="linkedin" id="editor-linkedin"/>
+                    <br>
+
+                    <label for="editor-details-format">
+                        Details format (add arbitrary data separated by | pipe). Supported properties:
+                        @email, @linkedin, @location.
+
+                    </label><br>
+                    <textarea name="about-me" id="editor-details-format"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="window-controls">
+                    <button class="button-minimize-fieldset">&ndash;</button>
+                    <span class="window-controls-title">Professional Experience</span>
+                </legend>
+
+                <div class="fieldset-content">
+                    Jobs list will be sorted by the start date in descending order. <br> <br>
+                    <fieldset class="prof-position" id="prof-position-template" style="display:none">
+                        <legend class="window-controls">
+                            <button class="window-control-close remove-position" data-remove="fieldset">&times;</button>
+                            <button class="button-minimize-fieldset">&ndash;</button>
+                            <span class="window-controls-title hidden"></span>
+                        </legend>
+
+                        <div class="fieldset-content">
+                            <input type="text" name="name" placeholder="Position"/> <br>
+                            <textarea name="details">Add information each on its line </textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="prof-experience" id="prof-experience-template" style="display:none">
+                        <legend class="window-controls">
+                            <button class="window-control-close remove-experience" data-remove="fieldset">&times;</button>
+                            <button class="button-minimize-fieldset">&ndash;</button>
+                            <span class="window-controls-title hidden"></span>
+                        </legend>
+
+                        <div class="fieldset-content">
+                            <input type="text" name="name" data-json="company" placeholder="Company"/>
+                            <input type="date" name="start-date" data-json="startDate" placeholder="Start date">
+                            &ndash;
+                            <input type="date" name="end-date" data-json="endDate" placeholder="End date">
+                            <br>
+                            <input type="text" name="location" data-json="location" placeholder="Location"/>
+                            <br>
+                            <button class="button-add add-position">Add position</button>
+                        </div>
+
+                    </fieldset>
+
+                    <button class="button-add" id="add-experience">Add experience</button>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="window-controls">
+                    <button class="button-minimize-fieldset">&ndash;</button>
+                    <span class="window-controls-title">Skills</span>
+                </legend>
+
+                <div class="fieldset-content">
+                    <fieldset class="skills-category" id="skills-category-template" style="display: none">
+                        <legend class="window-controls">
+                            <button class="window-control-close remove-skills-category" data-remove="fieldset">&times;</button>
+                            <button class="button-minimize-fieldset" data-minimize="fieldset">&ndash;</button>
+                            <span class="window-controls-title hidden"></span>
+                        </legend>
+
+                        <div class="fieldset-content">
+                            <input type="text" name="name" placeholder="Category"/>
+                            <input type="text" name="skills" placeholder="Comma-separated list"/>
+                        </div>
+                    </fieldset>
+
+                    <button class="button-add" id="add-skills-category">Add category</button>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend class="window-controls">
+                    <button class="button-minimize-fieldset">&ndash;</button>
+                    <span class="window-controls-title">Education</span>
+                </legend>
+
+                <div class="fieldset-content">
+                    Education list will be sorted by the end date in descending order. <br> <br>
+
+                    <fieldset class="education" id="education-template" style="display: none">
+                        <legend class="window-controls">
+                            <button class="window-control-close remove-education" data-remove="fieldset">&times;</button>
+                            <button class="button-minimize-fieldset">&ndash;</button>
+                            <span class="window-controls-title hidden"></span>
+                        </legend>
+
+                        <div class="fieldset-content">
+                            <input type="text" name="name" placeholder="Institution"/>
+                            <input type="date" name="start-date" placeholder="Start date">
+                            &ndash;
+                            <input type="date" name="end-date" placeholder="End date">
+                            <br>
+                            <input type="text" name="location" placeholder="Location"/>
+                            <br>
+                            <input type="text" name="title" placeholder="Degree, specialization, etc..."/>
+                        </div>
+
+                    </fieldset>
+
+                    <button class="button-add" id="add-education">Add education</button>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Import/Export</legend>
+                You can save your CV as a JSON, and import it later when you need to make adjustments.
+
+                <br><br>
+
+                <input type="file" id="json-selector" accept=".json">
+
+                <button class="button-add" id="save-json">Export JSON</button>
+            </fieldset>
+
+            <div class="actions">
+                <button class="button-add" id="hide-editor">Hide Editor</button>
+                <button class="button-add" id="refresh-preview">Refresh Preview</button>
+                <button class="button-add" id="print">Print</button>
+                <button class="button-critical" id="clear">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <button class="button-add hidden" id="show-editor">Show Editor</button>
+
+    <hr/>
+</div>
+
+<div class="container">
+    <div class="cv" id="cv">
+    </div>
+</div>
+
+</body>
+</html>
