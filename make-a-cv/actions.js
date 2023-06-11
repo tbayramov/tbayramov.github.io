@@ -35,7 +35,7 @@ function initializeActions() {
         }
     }, 500);
 
-    setOnClick("show-example-resume", (e) => {
+    setOnClick("import-example-cv", (e) => {
         if(confirm("You will lose any existing progress. Proceed?")) {
             load(EXAMPLE_RESUME);
         }
